@@ -23,7 +23,6 @@ class Loader(BaseLoader):
     env.globals['url_for'] = urlresolvers.reverse
     env.globals['MEDIA_URL'] = settings.MEDIA_URL
     #env.globals['STATIC_URL'] = settings.STATIC_URL
-    
 
     def load_template(self, template_name, template_dirs=None):
         try:
