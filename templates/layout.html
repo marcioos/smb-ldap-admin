@@ -4,8 +4,11 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta http-equiv="Content-Language" content="pt-br" />
-	<script type="text/javascript" src="admuser/media/js/jquery.js"/></script>
+	<script type="text/javascript" src="admuser/media/js/jquery.min.js"/></script>
+	<script type="text/javascript" src="admuser/media/js/jquery-ui.min.js"/></script>
+	<script type="text/javascript" src="admuser/media/js/layout.js"/></script>
 	{% block js %}{% endblock %}
+	<link rel="stylesheet" type="text/css" href="admuser/media/css/jquery-ui.css" />
 	<link rel="stylesheet" type="text/css" href="admuser/media/css/layout.css" />
 	<link rel="stylesheet" type="text/css" href="admuser/media/css/style.css" />
 	{% block css %}{% endblock %}
@@ -18,16 +21,14 @@
             </div>
             <hr/>
             <div id='main_view'>
-                <div id='accordion'>
-                    {% include 'accordion.html' %}
-                </div>
-                <div id='actions'>
+                {% include 'accordion.html' %}
+                <div id='actions' style="height: 650px">
                     ACTIONS <!-- feeded by ajax -->
                 </div>
             </div>
             <hr/>
             <div id='footer'>
-               django powered
+                <img src="admuser/media/img/djangopowered.gif" alt="Powered by Django" />
             </div>
         </div>
     </body>
