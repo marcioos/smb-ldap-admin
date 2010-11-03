@@ -9,7 +9,10 @@
 	<link rel="stylesheet" type="text/css" href="admuser/media/css/jquery-ui.css" />
 	<link rel="stylesheet" type="text/css" href="admuser/media/css/layout.css" />
 	<link rel="stylesheet" type="text/css" href="admuser/media/css/style.css" />
-	{% block css %}{% endblock %}
+    {% block css %}{% endblock %}
+
+    <base href="http://dex/admuser/"/> <!-- TODO: isso nao deve ser hardcoded -->
+
 	<title>Gerenciador de usuários</title>
 </head>
     <body>
@@ -20,13 +23,16 @@
             <hr/>
             <div id='main_view'>
                 {% include 'accordion.html' %}
-                <div id='actions' style="height: 650px">
+                <div id='actions'>
                     ACTIONS <!-- feeded by ajax -->
                 </div>
             </div>
             <hr/>
             <div id='footer'>
                 <img src="admuser/media/img/djangopowered.gif" alt="Powered by Django" />
+            </div>
+            <div id='debug'>
+                {{ debug }}
             </div>
         </div>
     </body>
