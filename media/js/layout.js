@@ -1,12 +1,12 @@
 $(document).ready(function(){
     $("#accordion").accordion();
-    $("#actions").css('height', $("#accordion").css('height'));
+    $("#tab_content").css('height', $("#accordion").css('height'));
     $(".accordion_link").click(function() {
         $.ajax({
             url: $(this).attr('name'),
             type: 'get',
             success: function(data) {
-                $("#actions").html(data)
+                $("#tab_content").html(data)
             },
             dataType: 'text'
         });

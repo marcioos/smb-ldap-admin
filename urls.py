@@ -16,5 +16,5 @@ urlpatterns = patterns('',
     # (r'^admin/', include(admin.site.urls)),
 
     (r'^$', index),
-    (r'^(?P<action>.+)$', action_dispatcher),
+    (r'^(?P<tab>.+)$', tab_dispatcher),
 )

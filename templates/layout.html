@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<script type="text/javascript" src="admuser/media/js/jquery.min.js"/></script>
-	<script type="text/javascript" src="admuser/media/js/jquery-ui.min.js"/></script>
-	<script type="text/javascript" src="admuser/media/js/layout.js"/></script>
-	{% block js %}{% endblock %}
-	<link rel="stylesheet" type="text/css" href="admuser/media/css/jquery-ui.css" />
-	<link rel="stylesheet" type="text/css" href="admuser/media/css/layout.css" />
-	<link rel="stylesheet" type="text/css" href="admuser/media/css/style.css" />
-    {% block css %}{% endblock %}
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <base href="http://dex/admuser/"/> <!-- TODO: isso nao precisa ser hardcoded -->
 
-    <base href="http://dex/admuser/"/> <!-- TODO: isso nao deve ser hardcoded -->
+	<script type="text/javascript" src="media/js/jquery.min.js"/></script>
+	<script type="text/javascript" src="media/js/jquery-ui.min.js"/></script>
+	<script type="text/javascript" src="media/js/layout.js"/></script>
+    {% block js %}{% endblock %}
+
+	<link rel="stylesheet" type="text/css" href="media/css/jquery-ui.css" />
+	<link rel="stylesheet" type="text/css" href="media/css/layout.css" />
+	<link rel="stylesheet" type="text/css" href="media/css/style.css" />
+    {% block css %}{% endblock %}
 
 	<title>Gerenciador de usuários</title>
 </head>
@@ -23,17 +24,22 @@
             <hr/>
             <div id='main_view'>
                 {% include 'accordion.html' %}
-                <div id='actions'>
-                    ACTIONS <!-- feeded by ajax -->
+                <div id='tab_content'>
+                    <h3>
+                        Selecione a opção desejada ao lado
+                    </h3>
+                    <!-- feeded by ajax -->
                 </div>
             </div>
             <hr/>
             <div id='footer'>
-                <img src="admuser/media/img/djangopowered.gif" alt="Powered by Django" />
+                <img src="media/img/djangopowered.gif" alt="Powered by Django" />
             </div>
-            <div id='debug'>
-                {{ debug }}
-            </div>
+            {% if debug %}
+                <div id='debug'>
+                    {{ debug }}
+                </div>
+            {% endif %}
         </div>
     </body>
 </html>
