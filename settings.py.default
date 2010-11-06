@@ -36,12 +36,12 @@ USE_L10N = True
 
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = '/home/marcio/codes/admuser/media'
+MEDIA_ROOT = '',
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
-MEDIA_URL = 'http://dex/admuser/media'
+MEDIA_URL = '',
 
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
@@ -66,7 +66,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'admuser.urls'
 
 TEMPLATE_DIRS = (
-	'/home/marcio/codes/admuser/templates',
+	'',
 )
 
 INSTALLED_APPS = (
@@ -76,6 +76,14 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
 )
 
-CACHE_BACKEND = 'memcached://127.0.0.1:11211/'
-CACHE_MIDDLEWARE_SECONDS = 600
-CACHE_MIDDLEWARE_KEY_PREFIX = 'admuser'
+#CACHE_BACKEND = 'memcached://127.0.0.1:11211/'
+#CACHE_MIDDLEWARE_SECONDS = 600
+#CACHE_MIDDLEWARE_KEY_PREFIX = 'admuser'
+
+ldap_cfg = {
+    'host': '',
+    'base_dn': '',
+    'ldap_tools': '',
+    'bind_dn': '',
+    'bind_pw': ''
+}
