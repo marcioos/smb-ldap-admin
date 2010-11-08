@@ -4,6 +4,7 @@ from django.core import urlresolvers
 from django.conf import settings
 import jinja2
 
+
 class Template(jinja2.Template):
     def render(self, context):
         # flatten the Django Context into a single dictionary.
@@ -12,9 +13,10 @@ class Template(jinja2.Template):
             context_dict.update(d)
         return super(Template, self).render(context_dict)
 
+
 class Loader(BaseLoader):
     is_usable = True
-    
+
     env = jinja2.Environment(loader=jinja2.FileSystemLoader(
       settings.TEMPLATE_DIRS))
     env.template_class = Template

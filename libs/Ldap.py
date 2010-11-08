@@ -2,17 +2,23 @@ from time import time
 from subprocess import Popen, PIPE
 from ldap import SCOPE_SUBTREE, ldapobject
 
-class NoSuchUser(Exception): pass
-class CommandError(Exception): pass
+
+class NoSuchUser(Exception):
+    pass
+
+
+class CommandError(Exception):
+    pass
+
 
 class Ldap(ldapobject.SimpleLDAPObject):
-    ''' 
+    '''
     handles usual ldap operations on a samba domain
     using smbldap-tools
     '''
 
     def __init__(self, **opts):
-        ''' 
+        '''
         Establishes an ldap connection and bind if needed.
         '''
 
@@ -21,7 +27,7 @@ class Ldap(ldapobject.SimpleLDAPObject):
         self._ldap_tools = opts['ldap_tools']
         self._bind_dn = opts.get('bind_dn', '')
         self._bind_pw = opts.get('bind_pw', '')
-        
+
         ldapobject.SimpleLDAPObject.__init__(self, self._host)
 
         if (len(self._bind_dn) > 0) and (len(self._bind_pw) > 0):
