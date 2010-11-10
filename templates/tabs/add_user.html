@@ -1,31 +1,34 @@
 {% extends 'tabs/tab_template.html' %}
 {% block tab_title %}<b>Adicionar usuário</b>{% endblock %}
 {% block tab_content %}
-<div id="left_side">
+<div id="tab_container">
     <form action="add_user" method="post" class="form">
         <label for="user_name">Login:</label>
         <div class="div_textbox">
             <input name="user_name" type="text" class="textinput" id="user_name" />
         </div>
+        <br class="clear">
         <label for="given_name">Nome completo:</label>
         <div class="div_textbox">
             <input name="given_name" type="text" class="textinput" id="given_name" />
         </div>
+        <br class="clear">
         <label for="user_cpf">CPF:</label>
         <div class="div_textbox">
             <input name="user_cpf" type="text" class="textinput" id="user_cpf" />
         </div>
+        <br class="clear">
         <label for="user_password">Senha:</label>
         <div class="div_textbox">
             <input name="user_password" type="text" class="textinput" id="user_password" />
         </div>
+        <br class="clear">
         <label for="user_ou">Unidade organizacional:</label>
         <div class="div_textbox">
             <input name="user_ou" type="text" class="textinput" id="user_ou" />
         </div>
-        <div class="button_div">
-            <input name="submit" type="button" value="enviar" class="buttons" />
-        </div>
+        <br class="clear">
+        <input name="submit" type="button" value="enviar" class="button" />
     </form>
 </div>
 {% endblock %}
