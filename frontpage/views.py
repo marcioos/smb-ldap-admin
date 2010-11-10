@@ -8,10 +8,10 @@ def index(request):
 
 
 def tab_dispatcher(request, **kw):
-    return getattr(TabContainer, kw['tab'])(request)
+    return getattr(Tabs, kw['tab'])(request)
 
 
-class TabContainer:
+class Tabs:
     '''holds tab views'''
 
     @staticmethod
