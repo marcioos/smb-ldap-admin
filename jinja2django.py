@@ -1,12 +1,17 @@
 from django.template.loader import BaseLoader
+from django.template.context import RequestContext
 from django.template import TemplateDoesNotExist
 from django.core import urlresolvers
 from django.conf import settings
 import jinja2
+from admuser.libs.Logger import debug
 
 
 class Template(jinja2.Template):
     def render(self, context):
+        if isinstance(context.dicts[0], RequestContext):
+            context = context.dicts[0]
+
         # flatten the Django Context into a single dictionary.
         context_dict = {}
         for d in context.dicts:
@@ -17,8 +22,8 @@ class Template(jinja2.Template):
 class Loader(BaseLoader):
     is_usable = True
 
-    env = jinja2.Environment(loader=jinja2.FileSystemLoader(
-      settings.TEMPLATE_DIRS))
+    env = jinja2.Environment(
+        loader=jinja2.FileSystemLoader(settings.TEMPLATE_DIRS))
     env.template_class = Template
 
     # These are available to all templates.

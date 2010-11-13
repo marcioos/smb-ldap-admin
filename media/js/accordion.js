@@ -8,6 +8,9 @@ $(document).ready(function(){
             success: function(data) {
                 $("#main_content").html(data)
             },
+            error: function(xhr, text, err) {
+                $("#main_content").html(xhr.responseText);
+            },
             dataType: 'text'
         });
     });

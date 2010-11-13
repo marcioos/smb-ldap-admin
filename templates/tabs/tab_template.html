@@ -2,5 +2,8 @@
     <legend>
         {% block tab_title %}{% endblock %}
     </legend>
+    {% block js %}
+        <script type="text/javascript" src="media/js/tab_layout.js"></script>
+    {% endblock %}
     {% block tab_content %}{% endblock %}
 </fieldset>

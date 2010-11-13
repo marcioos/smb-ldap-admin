@@ -3,6 +3,7 @@
 {% block tab_content %}
 <div id="tab_container">
     <form action="add_user" method="post" class="form">
+        <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
         <label for="user_name">Login:</label>
         <div class="div_textbox">
             <input name="user_name" type="text" class="textinput" id="user_name" />
@@ -15,20 +16,26 @@
         <br class="clear">
         <label for="user_cpf">CPF:</label>
         <div class="div_textbox">
-            <input name="user_cpf" type="text" class="textinput" id="user_cpf" />
+            <input name="user_cpf" type="text" class="textinput" id="user_cpf" maxlength="14" />
         </div>
         <br class="clear">
         <label for="user_password">Senha:</label>
         <div class="div_textbox">
-            <input name="user_password" type="text" class="textinput" id="user_password" />
+            <input name="user_password" type="password" class="textinput" id="user_password" />
         </div>
         <br class="clear">
         <label for="user_ou">Unidade organizacional:</label>
         <div class="div_textbox">
-            <input name="user_ou" type="text" class="textinput" id="user_ou" />
+            <select name="user_ou" id="user_ou">
+                {% for ou in ou_list %}
+                    <option value="{{ ou[0] }}">
+                        {{ ou[1].upper() }}
+                    </option>
+                {% endfor %}
+            </select>
         </div>
         <br class="clear">
-        <input name="submit" type="button" value="enviar" class="button" />
+        <input type="submit" value="enviar" class="button" />
     </form>
 </div>
 {% endblock %}
