@@ -13,6 +13,7 @@ def getlogger():
     return logger
 
 def debug(msg):
-    logger = getlogger()
-    logger.debug(msg)
+    if settings.DEBUG:
+        logger = getlogger()
+        logger.debug(msg)
 

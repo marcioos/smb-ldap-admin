@@ -4,7 +4,6 @@ from django.template import TemplateDoesNotExist
 from django.core import urlresolvers
 from django.conf import settings
 import jinja2
-from admuser.libs.Logger import debug
 
 
 class Template(jinja2.Template):
@@ -23,7 +22,8 @@ class Loader(BaseLoader):
     is_usable = True
 
     env = jinja2.Environment(
-        loader=jinja2.FileSystemLoader(settings.TEMPLATE_DIRS))
+        loader=jinja2.FileSystemLoader(settings.TEMPLATE_DIRS)
+    )
     env.template_class = Template
 
     # These are available to all templates.
