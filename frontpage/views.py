@@ -8,12 +8,6 @@ from libs.Logger import debug
 def index(request):
     return render_to_response('layout.html')
 
-
-@RequiredGroup('admuser_creators')
-def add_user(request):
-    return Tabs.add_user(request)
-
-
 def tab_dispatcher(request, **kw):
     return getattr(Tabs, kw['tab'])(request)
 
@@ -22,7 +16,7 @@ class Tabs:
     '''holds tab views'''
 
     @staticmethod
-    @RequiredGroup('admuser_users')
+    @RequiredGroup('admuser_creators')
     def add_user(request):
         ou_list = [(0, 'cpd'), (1, 'administrativo'), (2, 'diretoria')]
         context = RequestContext(

@@ -1,6 +1,8 @@
 $(document).ready(function(){
     $("#accordion").accordion();
-    $("#main_content").css('height', $("#accordion").css('height'));
+
+    $("#main_content").css('height', $("#accordion").height());
+
     $(".accordion_link").click(function() {
         $.ajax({
             url: $(this).attr('id'),
